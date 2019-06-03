@@ -28,7 +28,10 @@
                     </f:facet >
 
                     <p:column style="width:30%" headerText="Título" sortBy="#{seminario.titulo}" >
-                        <h:outputText value="#{seminario.titulo}" />
+                        <p:commandLink outcome="productDetail" value="#{seminario.titulo}"
+                                       update="seminarioDetailsDialog" action="#{bean.show(seminario)}" >
+                            <h:outputText value="#{seminario.titulo}" />
+                        </p:commandLink >
                     </p:column >
                     <p:column style="width:20%" headerText="Local" sortBy="#{seminario.local}" >
                         <h:outputText value="#{seminario.local}" />
@@ -59,6 +62,7 @@
         <!-- INCLUI DIÁLOGO DE CRIAÇÃO/EDIÇÃO -->
         <!-- ================================ -->
         <ui:include src="./seminarioEditDialog.xhtml" />
+        <ui:include src="./seminarioDetailsDialog.xhtml" />
 
     </ui:define >
 </ui:composition >

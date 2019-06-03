@@ -50,6 +50,14 @@ public class SeminarioBean extends _Bean
 		showDialog("seminarioEditDialog");
 	}
 
+	public void show(Seminario seminario)
+	{
+		// Guarda a instância que será exibida
+		this.seminarioEditable = seminario;
+
+		// Apresenta o diálogo
+		showDialog("seminarioDetailsDialog");
+	}
 	public void update(Seminario seminarioEditable)
 	{
 		// Guarda a instância que será editada

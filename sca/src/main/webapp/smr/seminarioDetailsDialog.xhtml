@@ -1,0 +1,28 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:p="http://primefaces.org/ui"
+                template="../_templateDialog.xhtml" >
+
+    <ui:define name="dialogContent" >
+
+
+        <!-- Simplifica o nome do Bean principal da página -->
+        <ui:param name="bean" value="#{seminarioBean}" />
+
+        <p:dialog id="seminarioDetailsDialog" widgetVar="seminarioDetailsDialog"
+                  width="520" resizable="false" modal="true" hideEffect="drop"
+                  position="center center" header="#{bean.seminarioEditable.titulo}" >
+
+            <h:outputText value="#{bean.seminarioEditable.resumo}" />
+
+        </p:dialog >
+    </ui:define >
+</ui:composition >
+
+
+
+
+
+
+
+
+
