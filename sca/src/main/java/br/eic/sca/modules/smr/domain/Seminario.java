@@ -1,6 +1,7 @@
 package br.eic.sca.modules.smr.domain;
 
 import javax.persistence.*;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
 
@@ -78,6 +79,11 @@ public class Seminario implements Comparable<Seminario>
 	public Date getData()
 	{
 		return data;
+	}
+
+	public String getDataFormatada()
+	{
+		return new SimpleDateFormat("dd/MM/YYYY HH:mm").format(data);
 	}
 
 	public void setData(Date data)

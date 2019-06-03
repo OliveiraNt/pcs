@@ -38,7 +38,8 @@
                                 requiredMessage="A data é obrigatória" />
 
                     <p:outputLabel value="Resumo" />
-                    <p:inputTextarea value="#{bean.seminarioEditable.resumo}" />
+                    <p:inputTextarea id="resumo" value="#{bean.seminarioEditable.resumo}"
+                                     autoResize="false" />
 
                 </h:panelGrid >
 
@@ -52,12 +53,12 @@
 
                 <p:dialog modal="true" resizable="false" header="Values" widgetVar="dlg" showEffect="fold" >
                     <p:panelGrid id="display" columns="2" columnClasses="label,value" >
-                        <h:outputText value="Data" />
                         <h:outputText value="#{bean.seminarioEditable.data}" >
                             <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                         </h:outputText >
                     </p:panelGrid >
                 </p:dialog >
+
             </h:form >
 
         </p:dialog >
