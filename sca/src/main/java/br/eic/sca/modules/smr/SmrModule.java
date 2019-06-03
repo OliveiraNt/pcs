@@ -18,6 +18,6 @@ public class SmrModule extends ScaModule
 	@Override
 	public Permission[] providePermissions()
 	{
-		return new Permission[]{new Permission("Seminário", "Eventos", "/smr/seminario.jsf", "ADMIN")};
+		return new Permission[]{new Permission("Eventos", "Seminário", "/smr/seminario.jsf", "ADMIN")};
 	}
 }

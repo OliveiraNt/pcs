@@ -1,26 +1,4 @@
-﻿package br.eic.sca.modules.sie.dao.impl;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.TreeMap;
-import java.util.TreeSet;
-
-import javax.annotation.PostConstruct;
-
-import org.apache.commons.lang3.StringUtils;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.CellType;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
+package br.eic.sca.modules.sie.dao.impl;
 
 import br.eic.sca.modules.sie.dao.DisciplinaDao;
 import br.eic.sca.modules.sie.dao.ProfessorDao;
@@ -30,6 +8,17 @@ import br.eic.sca.modules.sie.domain.Disciplina;
 import br.eic.sca.modules.sie.domain.Professor;
 import br.eic.sca.modules.sie.domain.Turma;
 import br.eic.sca.modules.sie.filters.TurmaFilter;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.PostConstruct;
+import java.io.File;
+import java.io.FileInputStream;
+import java.util.*;
 
 @Component
 public class TurmaDaoImpl extends _DaoSieAbstract<Turma> implements TurmaDao
@@ -79,7 +68,7 @@ public class TurmaDaoImpl extends _DaoSieAbstract<Turma> implements TurmaDao
 			long timestamp = System.currentTimeMillis();
 			
 			File dir = new File(siefolderPath + "11.02.03.99.19 - Ofertas de Disciplinas");
-			File arquivos[] = dir.listFiles();
+			File[] arquivos = dir.listFiles();
 			
 			// Verifica se há planilha(s)
 			if (arquivos==null || arquivos.length==0)

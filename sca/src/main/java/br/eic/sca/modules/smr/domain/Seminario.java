@@ -1,7 +1,7 @@
 package br.eic.sca.modules.smr.domain;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.Objects;
 
 @Table(name = "smr_seminario")
@@ -26,7 +26,7 @@ public class Seminario implements Comparable<Seminario>
 	private String local;
 
 	@Column
-	private LocalDateTime data;
+	private Date data;
 
 	@Column
 	private String resumo;
@@ -75,12 +75,12 @@ public class Seminario implements Comparable<Seminario>
 		this.local = local;
 	}
 
-	public LocalDateTime getData()
+	public Date getData()
 	{
 		return data;
 	}
 
-	public void setData(LocalDateTime data)
+	public void setData(Date data)
 	{
 		this.data = data;
 	}

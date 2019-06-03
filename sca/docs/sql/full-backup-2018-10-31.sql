@@ -358,3 +358,20 @@ INSERT INTO `mtr_turma_monitoria` (`id`,`local`,`disciplina`,`dia_da_semana`,`ho
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+
+
+--
+-- Definition of table `smr_seminario`
+--
+DROP TABLE IF EXISTS `smr_seminario`;
+CREATE TABLE `sca`.`smr_seminario`
+(
+    `id`          INT(10)      NOT NULL AUTO_INCREMENT,
+    `titulo`      VARCHAR(255) NULL,
+    `palestrante` VARCHAR(255) NULL,
+    `local`       VARCHAR(45)  NULL,
+    `data`        DATETIME     NULL,
+    `resumo`      LONGTEXT     NULL,
+    PRIMARY KEY (`id`),
+    UNIQUE INDEX `id_UNIQUE` (`id` ASC)
+);

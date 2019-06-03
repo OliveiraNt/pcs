@@ -1,5 +1,5 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:p="http://primefaces.org/ui" xmlns:f="http://xmlns.jcp.org/jsf/core"
                 template="../_templateDialog.xhtml" >
 
     <ui:define name="dialogContent" >
@@ -9,6 +9,58 @@
         <ui:param name="bean" value="#{seminarioBean}" />
 
 
+        <p:dialog id="seminarioEditDialog" widgetVar="seminarioEditDialog"
+                  width="520" resizable="false" modal="true" hideEffect="drop"
+                  position="center center" header="Seminário" >
+            <h:form id="seminarioEditDialogForm" >
+
+                <h:panelGrid columns="2" cellpadding="4" >
+
+                    <p:outputLabel value="Título *" />
+                    <p:inputText value="#{bean.seminarioEditable.titulo}"
+                                 required="true"
+                                 requiredMessage="O Título é obrigatório" />
+
+                    <p:outputLabel value="Palestrante *" />
+                    <p:inputText value="#{bean.seminarioEditable.palestrante}"
+                                 required="true"
+                                 requiredMessage="O Palestrante é obrigatório" />
+
+                    <p:outputLabel value="Local *" />
+                    <p:inputText value="#{bean.seminarioEditable.local}"
+                                 required="true"
+                                 requiredMessage="O Local é obrigatório" />
+
+                    <p:outputLabel for="datetime" value="Data *" />
+                    <p:calendar id="datetime" value="#{bean.seminarioEditable.data}"
+                                pattern="MM/dd/yyyy HH:mm:ss"
+                                required="true"
+                                requiredMessage="A data é obrigatória" />
+
+                    <p:outputLabel value="Resumo" />
+                    <p:inputTextarea value="#{bean.seminarioEditable.resumo}" />
+
+                </h:panelGrid >
+
+                <p:panel style="margin-top:3px; border-width: 0px;" >
+                    <p:outputPanel style="text-align:right; margin-top:7px;" >
+                        <p:commandButton actionListener="#{bean.persist()}"
+                                         icon="ui-icon ui-icon-disk" value="Salvar" class="salvarBtn"
+                                         update="pageForm,seminarioEditDialogForm,messages" />
+                    </p:outputPanel >
+                </p:panel >
+
+                <p:dialog modal="true" resizable="false" header="Values" widgetVar="dlg" showEffect="fold" >
+                    <p:panelGrid id="display" columns="2" columnClasses="label,value" >
+                        <h:outputText value="Data" />
+                        <h:outputText value="#{bean.seminarioEditable.data}" >
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText >
+                    </p:panelGrid >
+                </p:dialog >
+            </h:form >
+
+        </p:dialog >
     </ui:define >
 </ui:composition >
 
